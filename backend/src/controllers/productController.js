@@ -17,8 +17,8 @@ export const ProductController = {
       if (search && typeof search === 'string') {
         const query = search.trim().toLowerCase();
         items = items.filter(item => {
-          const nombre = item.nombre ? item.nombre.lowerCase() : '';
-          const descripcion = item.descripcion ? item.descripcion.lowerCase() : '';
+          const nombre = item.nombre ? item.nombre.toLowerCase() : '';
+          const descripcion = item.descripcion ? item.descripcion.toLowerCase() : '';
           return nombre.includes(query) || descripcion.includes(query);
         })
       }

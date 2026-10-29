@@ -9,11 +9,17 @@ import { config } from './config/env.js';
 
 const app = express();
 
+const allowedOrigins = Array.from(new Set([
+  config.frontendUrl,
+  'http://localhost:5173',
+  'http://127.0.0.1:5173'
+]));
+
 const corsOptions = {
-  origin: config.frontendUrl,
+  origin: allowedOrigins,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-}
+};
 
 // Middlewares globales
 app.use(cors(corsOptions));
